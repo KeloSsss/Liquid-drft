@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kontakt - Liquid Drift</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: #080d1a;
+            background-image: radial-gradient(circle at 50% 20%, #0d1b3e 0%, #080d1a 80%);
+            color: #ffffff;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .card {
+            background: rgba(13, 25, 54, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            padding: 40px 25px;
+            border-radius: 24px;
+            box-shadow: 0 15px 35px rgba(0, 119, 255, 0.15), 
+                        0 0 0 1px rgba(0, 162, 255, 0.2);
+            max-width: 420px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* Logo czaszki i oleju */
+        .logo-container {
+            width: 100px;
+            height: 100px;
+            margin-bottom: 20px;
+            background: radial-gradient(circle, rgba(0, 162, 255, 0.2) 0%, rgba(0,0,0,0) 70%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%;
+            padding: 10px;
+        }
+
+        .logo-svg {
+            width: 100%;
+            height: 100%;
+            filter: drop-shadow(0 0 8px rgba(0, 195, 255, 0.8));
+        }
+
+        .phone-box {
+            width: 100%;
+            margin: 15px 0 25px 0;
+        }
+
+        .phone-label {
+            font-size: 0.85rem;
+            color: #72a1e5;
+            text-transform: uppercase;
+            letter-spacing: 2.5px;
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        /* Przycisk do dzwonienia */
+        .call-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            background: linear-gradient(135deg, #0051ff, #00a2ff);
+            color: #ffffff;
+            font-size: 1.5rem;
+            font-weight: 700;
+            text-decoration: none;
+            padding: 16px 28px;
+            border-radius: 50px;
+            width: 100%;
+            box-shadow: 0 8px 20px rgba(0, 114, 255, 0.4);
+            transition: all 0.3s ease;
+        }
+
+        .call-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 25px rgba(0, 162, 255, 0.6);
+            background: linear-gradient(135deg, #0062ff, #00c3ff);
+        }
+
+        .call-button:active {
+            transform: translateY(1px);
+        }
+
+        .phone-icon {
+            width: 24px;
+            height: 24px;
+            fill: #ffffff;
+        }
+
+        /* Kolorowy, animowany napis */
+        .liquify-text {
+            font-size: 1.25rem;
+            font-weight: 800;
+            background: linear-gradient(45deg, #ff007f, #9b51e0, #00d2ff, #00ff87, #ff007f);
+            background-size: 300% 300%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: gradientAnimation 4s ease infinite;
+            margin-top: 10px;
+            line-height: 1.4;
+            padding: 10px 0;
+        }
+
+        @keyframes gradientAnimation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <!-- Logo Czaszka z kroplą oleju w środku -->
+        <div class="logo-container">
+            <svg class="logo-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                <!-- Czaszka -->
+                <path d="M 50 15 C 32 15 20 28 20 45 C 20 56 25 64 30 70 L 32 82 C 32 84 34 85 36 85 L 64 85 C 66 85 68 84 68 82 L 70 70 C 75 64 80 56 80 45 C 80 28 68 15 50 15 Z" fill="#00d2ff" opacity="0.9"/>
+                <!-- Oczodoły -->
+                <ellipse cx="38" cy="48" rx="8" ry="11" fill="#080d1a"/>
+                <ellipse cx="62" cy="48" rx="8" ry="11" fill="#080d1a"/>
+                <!-- Otwór nosowy -->
+                <path d="M 50 58 L 46 66 L 54 66 Z" fill="#080d1a"/>
+                <!-- Zęby / Wycięcia na dole -->
+                <line x1="42" y1="76" x2="42" y2="85" stroke="#080d1a" stroke-width="3"/>
+                <line x1="50" y1="76" x2="50" y2="85" stroke="#080d1a" stroke-width="3"/>
+                <line x1="58" y1="76" x2="58" y2="85" stroke="#080d1a" stroke-width="3"/>
+                <!-- Kropla oleju na czole czaszki -->
+                <path d="M 50 22 C 50 22 42 32 42 37 C 42 41 45.5 44 50 44 C 54.5 44 58 41 58 37 C 58 32 50 22 50 22 Z" fill="#080d1a"/>
+            </svg>
+        </div>
+
+        <div class="phone-box">
+            <div class="phone-label">Kliknij, aby zadzwonić</div>
+            <a href="tel:728565481" class="call-button">
+                <svg class="phone-icon" viewBox="0 0 24 24">
+                    <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+                </svg>
+                728 565 481
+            </a>
+        </div>
+
+        <div class="liquify-text">
+            Kontakt po liquify więcej na pv
+        </div>
+    </div>
+
+</body>
+</html>
