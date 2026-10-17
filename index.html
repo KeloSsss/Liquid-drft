@@ -3,23 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LIQUID & VAPE // PREMIUM OUTLET</title>
-    <!-- Google Fonts -->
+    <title>LIQUID & VAPE // PREMIUM STORE</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Rajdhani:wght@600;700&display=swap" rel="stylesheet">
     
     <style>
         :root {
             --bg-dark: #02040a;
-            --card-bg: rgba(10, 16, 32, 0.75);
+            --card-bg: rgba(10, 16, 32, 0.85);
             --primary-cyan: #00f3ff;
             --primary-blue: #0066ff;
             --accent-pink: #ff0055;
-            --accent-purple: #7928ca;
-            --text-main: #f1f5f9;
+            --text-main: #ffffff;
             --text-muted: #94a3b8;
-            --border-glow: rgba(0, 243, 255, 0.3);
+            --border-glow: rgba(0, 243, 255, 0.35);
         }
 
         * {
@@ -37,12 +35,11 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            padding: 25px 15px;
+            padding: 20px 15px;
             overflow-x: hidden;
             position: relative;
         }
 
-        /* Animowane Cyberpunkowe Tło */
         .bg-grid {
             position: fixed;
             top: 0; left: 0;
@@ -50,46 +47,30 @@
             background-image: 
                 linear-gradient(to right, rgba(0, 243, 255, 0.03) 1px, transparent 1px),
                 linear-gradient(to bottom, rgba(0, 243, 255, 0.03) 1px, transparent 1px);
-            background-size: 40px 40px;
+            background-size: 35px 35px;
             z-index: -2;
         }
 
-        .bg-glow-1 {
+        .bg-glow {
             position: fixed;
             top: -10%; left: 50%;
             transform: translateX(-50%);
-            width: 600px; height: 600px;
-            background: radial-gradient(circle, rgba(0, 243, 255, 0.15) 0%, transparent 70%);
-            filter: blur(80px);
-            z-index: -1;
-            animation: pulseGlow 6s ease-in-out infinite alternate;
-        }
-
-        .bg-glow-2 {
-            position: fixed;
-            bottom: -10%; right: 10%;
             width: 500px; height: 500px;
-            background: radial-gradient(circle, rgba(255, 0, 85, 0.1) 0%, transparent 70%);
+            background: radial-gradient(circle, rgba(0, 243, 255, 0.18) 0%, transparent 70%);
             filter: blur(80px);
             z-index: -1;
         }
 
-        @keyframes pulseGlow {
-            0% { opacity: 0.5; transform: translateX(-50%) scale(0.9); }
-            100% { opacity: 1; transform: translateX(-50%) scale(1.1); }
-        }
-
-        /* Główny Kontener */
         .main-wrapper {
-            max-width: 480px;
+            max-width: 440px;
             width: 100%;
             display: flex;
             flex-direction: column;
-            gap: 20px;
+            gap: 18px;
             z-index: 1;
         }
 
-        /* Pasek Statusu Live */
+        /* Status Bar */
         .status-bar {
             background: rgba(15, 23, 42, 0.9);
             border: 1px solid var(--border-glow);
@@ -99,8 +80,8 @@
             justify-content: space-between;
             align-items: center;
             backdrop-filter: blur(10px);
-            font-size: 0.85rem;
-            font-weight: 600;
+            font-size: 0.8rem;
+            font-weight: 700;
             letter-spacing: 1px;
         }
 
@@ -125,21 +106,20 @@
             50% { opacity: 0.3; }
         }
 
-        .status-location {
+        .status-tag {
             color: var(--text-muted);
-            text-transform: uppercase;
             font-size: 0.75rem;
         }
 
-        /* Główny Nagłówek Sklepu */
+        /* Nagłówek */
         .header-card {
             background: var(--card-bg);
             border: 1px solid var(--border-glow);
-            border-radius: 24px;
-            padding: 30px 20px;
+            border-radius: 22px;
+            padding: 25px 18px;
             text-align: center;
             backdrop-filter: blur(16px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6), inset 0 0 20px rgba(0, 243, 255, 0.05);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
             position: relative;
             overflow: hidden;
         }
@@ -147,147 +127,74 @@
         .header-card::before {
             content: '';
             position: absolute;
-            top: 0; left: 0; width: 100%; height: 2px;
+            top: 0; left: 0; width: 100%; height: 3px;
             background: linear-gradient(90deg, transparent, var(--primary-cyan), var(--accent-pink), transparent);
-        }
-
-        .brand-badge {
-            display: inline-block;
-            font-family: 'Orbitron', sans-serif;
-            font-size: 0.65rem;
-            font-weight: 700;
-            color: var(--primary-cyan);
-            background: rgba(0, 243, 255, 0.1);
-            border: 1px solid rgba(0, 243, 255, 0.3);
-            padding: 4px 12px;
-            border-radius: 12px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 12px;
         }
 
         .main-title {
             font-family: 'Orbitron', sans-serif;
-            font-size: 1.8rem;
+            font-size: 1.7rem;
             font-weight: 900;
-            line-height: 1.2;
-            background: linear-gradient(135deg, #ffffff 0%, #a5f3fc 50%, var(--primary-cyan) 100%);
+            background: linear-gradient(135deg, #ffffff 0%, var(--primary-cyan) 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             text-transform: uppercase;
             letter-spacing: 1.5px;
-            margin-bottom: 8px;
+            margin-bottom: 4px;
         }
 
         .main-subtitle {
             color: var(--text-muted);
-            font-size: 0.95rem;
-            font-weight: 600;
-            letter-spacing: 1px;
-        }
-
-        /* Sekcja Produktów */
-        .section-title {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 0.9rem;
-            color: var(--primary-cyan);
-            text-transform: uppercase;
+            font-size: 0.85rem;
+            font-weight: 700;
             letter-spacing: 2px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin-top: 5px;
+            text-transform: uppercase;
         }
 
-        .section-title::after {
-            content: '';
-            flex-grow: 1;
-            height: 1px;
-            background: linear-gradient(90deg, rgba(0,243,255,0.4), transparent);
-        }
-
+        /* Produkty */
         .product-grid {
             display: flex;
             flex-direction: column;
-            gap: 16px;
+            gap: 14px;
         }
 
         .product-card {
             background: var(--card-bg);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 20px;
-            padding: 18px;
+            border: 1px solid rgba(0, 243, 255, 0.2);
+            border-radius: 18px;
+            padding: 16px;
             display: flex;
-            gap: 16px;
+            gap: 14px;
             backdrop-filter: blur(12px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.4);
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.5);
+            transition: all 0.3s ease;
             position: relative;
-            overflow: hidden;
         }
 
         .product-card:hover {
             border-color: var(--primary-cyan);
-            transform: translateY(-4px);
-            box-shadow: 0 15px 35px rgba(0, 243, 255, 0.15);
-        }
-
-        .product-card.featured {
-            border-color: rgba(255, 0, 85, 0.4);
-        }
-
-        .product-card.featured:hover {
-            border-color: var(--accent-pink);
-            box-shadow: 0 15px 35px rgba(255, 0, 85, 0.2);
-        }
-
-        .card-badge {
-            position: absolute;
-            top: 12px; right: 12px;
-            font-size: 0.65rem;
-            font-weight: 700;
-            padding: 3px 8px;
-            border-radius: 6px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .badge-cyan {
-            background: rgba(0, 243, 255, 0.15);
-            color: var(--primary-cyan);
-            border: 1px solid rgba(0, 243, 255, 0.3);
-        }
-
-        .badge-pink {
-            background: rgba(255, 0, 85, 0.15);
-            color: var(--accent-pink);
-            border: 1px solid rgba(255, 0, 85, 0.3);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(0, 243, 255, 0.2);
         }
 
         .product-image-frame {
-            width: 100px;
-            height: 100px;
-            background: radial-gradient(circle, rgba(15, 23, 42, 1) 0%, rgba(3, 7, 18, 1) 100%);
+            width: 85px;
+            height: 85px;
+            background: #080d1a;
             border-radius: 14px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.12);
             display: flex;
             justify-content: center;
             align-items: center;
             flex-shrink: 0;
-            padding: 8px;
-            position: relative;
+            padding: 6px;
+            overflow: hidden;
         }
 
         .product-image-frame img {
             max-width: 100%;
             max-height: 100%;
             object-fit: contain;
-            filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.7));
-            transition: transform 0.3s ease;
-        }
-
-        .product-card:hover .product-image-frame img {
-            transform: scale(1.08) rotate(2deg);
         }
 
         .product-details {
@@ -302,38 +209,35 @@
             font-size: 1.1rem;
             font-weight: 700;
             color: #ffffff;
-            margin-bottom: 4px;
+            margin-bottom: 2px;
         }
 
         .product-desc {
-            font-size: 0.85rem;
+            font-size: 0.82rem;
             color: var(--text-muted);
-            margin-bottom: 10px;
-            line-height: 1.3;
+            margin-bottom: 8px;
         }
 
         .price-tag {
             display: flex;
-            align-items: baseline;
+            align-items: center;
             gap: 8px;
         }
 
         .current-price {
             font-family: 'Orbitron', sans-serif;
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             font-weight: 900;
             color: var(--primary-cyan);
-        }
-
-        .old-price {
-            font-size: 0.85rem;
-            color: #64748b;
-            text-decoration: line-through;
         }
 
         .neg-badge {
             font-size: 0.7rem;
             color: var(--accent-pink);
+            background: rgba(255, 0, 85, 0.15);
+            border: 1px solid rgba(255, 0, 85, 0.4);
+            padding: 2px 6px;
+            border-radius: 4px;
             font-weight: 700;
             text-transform: uppercase;
         }
@@ -342,10 +246,10 @@
         .contact-card {
             background: var(--card-bg);
             border: 1px solid var(--border-glow);
-            border-radius: 24px;
-            padding: 25px 20px;
+            border-radius: 22px;
+            padding: 22px 18px;
             backdrop-filter: blur(16px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
             text-align: center;
         }
 
@@ -353,70 +257,58 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 12px;
+            gap: 10px;
             background: linear-gradient(135deg, var(--primary-blue), var(--primary-cyan));
             color: #02040a;
             font-family: 'Orbitron', sans-serif;
             font-size: 1.35rem;
             font-weight: 900;
             text-decoration: none;
-            padding: 18px;
-            border-radius: 16px;
-            box-shadow: 0 10px 25px rgba(0, 243, 255, 0.35);
+            padding: 16px;
+            border-radius: 14px;
+            box-shadow: 0 8px 25px rgba(0, 243, 255, 0.4);
             transition: all 0.3s ease;
             margin-bottom: 12px;
-            letter-spacing: 1px;
-            border: none;
-            cursor: pointer;
-            width: 100%;
         }
 
         .call-main-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 15px 35px rgba(0, 243, 255, 0.6);
-            background: linear-gradient(135deg, #0077ff, #00ffff);
-        }
-
-        .call-main-btn:active {
-            transform: translateY(1px);
+            transform: scale(1.02);
+            box-shadow: 0 12px 30px rgba(0, 243, 255, 0.7);
         }
 
         .action-buttons-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 10px;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
         }
 
         .sub-btn {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.12);
             color: var(--text-main);
             padding: 10px;
-            border-radius: 12px;
+            border-radius: 10px;
             font-size: 0.85rem;
-            font-weight: 600;
+            font-weight: 700;
             text-decoration: none;
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 6px;
-            transition: all 0.2s ease;
             cursor: pointer;
         }
 
         .sub-btn:hover {
-            background: rgba(255, 255, 255, 0.12);
             border-color: var(--primary-cyan);
             color: var(--primary-cyan);
         }
 
         .liquify-banner {
-            background: linear-gradient(90deg, rgba(255, 0, 85, 0.1), rgba(0, 243, 255, 0.1));
-            border: 1px dashed rgba(0, 243, 255, 0.3);
+            background: linear-gradient(90deg, rgba(255, 0, 85, 0.12), rgba(0, 243, 255, 0.12));
+            border: 1px dashed rgba(0, 243, 255, 0.4);
             border-radius: 12px;
             padding: 12px;
-            margin-top: 5px;
         }
 
         .liquify-banner-text {
@@ -429,56 +321,13 @@
             -webkit-text-fill-color: transparent;
             animation: textFlow 3s linear infinite;
             text-transform: uppercase;
-            letter-spacing: 1px;
         }
 
         @keyframes textFlow {
             to { background-position: 200% center; }
         }
 
-        /* Sekcja Zaufania / FAQ */
-        .trust-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 10px;
-            margin-top: 5px;
-        }
-
-        .trust-item {
-            background: rgba(15, 23, 42, 0.6);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            border-radius: 12px;
-            padding: 12px 8px;
-            text-align: center;
-        }
-
-        .trust-icon {
-            font-size: 1.2rem;
-            margin-bottom: 4px;
-        }
-
-        .trust-title {
-            font-size: 0.75rem;
-            font-weight: 700;
-            color: var(--text-main);
-        }
-
-        .trust-desc {
-            font-size: 0.65rem;
-            color: var(--text-muted);
-        }
-
-        /* Stopka */
-        .footer {
-            text-align: center;
-            font-size: 0.75rem;
-            color: #475569;
-            padding: 10px 0;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-        }
-
-        /* Powiadomienie Skopiowano */
+        /* Toast */
         .toast {
             position: fixed;
             bottom: 20px;
@@ -492,7 +341,7 @@
             padding: 10px 20px;
             border-radius: 30px;
             box-shadow: 0 10px 25px rgba(0, 243, 255, 0.5);
-            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transition: transform 0.3s ease;
             z-index: 100;
         }
 
@@ -503,130 +352,93 @@
 </head>
 <body>
 
-    <!-- Efekty Tła -->
     <div class="bg-grid"></div>
-    <div class="bg-glow-1"></div>
-    <div class="bg-glow-2"></div>
+    <div class="bg-glow"></div>
 
     <div class="main-wrapper">
 
-        <!-- Pasek Statusu Live -->
+        <!-- Status -->
         <div class="status-bar">
             <div class="status-online">
                 <div class="dot"></div>
-                <span>STATUS: ONLINE // GOTOWY DO WYSYŁKI</span>
+                <span>OFERTA AKTYWNA</span>
             </div>
-            <div class="status-location">EXPRESS PV</div>
+            <div class="status-tag">WIĘCEJ NA PV</div>
         </div>
 
-        <!-- Główny Nagłówek -->
+        <!-- Nagłówek -->
         <div class="header-card">
-            <div class="brand-badge">OFFICIAL SUPPLIER</div>
-            <h1 class="main-title">LIQUID & VAPE</h1>
-            <p class="main-subtitle">Szybka obsługa • Najwyższa jakość • Najlepsze ceny</p>
+            <h1 class="main-title">LIQUID & VAPE STORE</h1>
+            <p class="main-subtitle">Dostępna Oferta</p>
         </div>
 
-        <!-- Nagłówek Sekcji Produkty -->
-        <div class="section-title">DOSTĘPNY ASORTYMENT</div>
-
-        <!-- Lista Produktów -->
+        <!-- Produkty -->
         <div class="product-grid">
 
-            <!-- Karta 1: Liquidy -->
+            <!-- Karta 1: Liquid -->
             <div class="product-card">
-                <div class="card-badge badge-cyan">HOT DEAL</div>
                 <div class="product-image-frame">
-                    <img src="liquid.png.JPG" alt="Liquidy Premium">
+                    <!-- Automatyczne sprawdzanie kilku nazw plików -->
+                    <img id="liquid-img" src="liquid.png.JPG" 
+                         onerror="this.onerror=null; this.src='liquid.png.jpg'; if(this.src.includes('jpg')) this.onerror=function(){this.onerror=null; this.src='liquid.png'; if(this.src.includes('png')) this.onerror=function(){this.onerror=null; this.src='liquid.jpg';}};" 
+                         alt="Liquidy">
                 </div>
-                <div class="product-details">
-                    <h2 class="product-title">LIQUIDY</h2>
-                    <p class="product-desc">Różne smaki oraz moce. Wybierz swój ulubiony wariant.</p>
+                <div class="product-info">
+                    <h2 class="product-title">Liquidy</h2>
+                    <p class="product-desc">Różne smaki i moce</p>
                     <div class="price-tag">
-                        <span class="current-price">PV / DMB</span>
-                        <span class="neg-badge">ZAPYTAJ</span>
+                        <span class="current-price">Zapytaj o cenę</span>
                     </div>
                 </div>
             </div>
 
             <!-- Karta 2: Pod L8 -->
-            <div class="product-card featured">
-                <div class="card-badge badge-pink">Bestseller</div>
+            <div class="product-card">
                 <div class="product-image-frame">
-                    <img src="l8.png.JPG" alt="Vape Pod L8">
+                    <img id="l8-img" src="l8.png.JPG" 
+                         onerror="this.onerror=null; this.src='l8.png.jpg'; if(this.src.includes('jpg')) this.onerror=function(){this.onerror=null; this.src='l8.png'; if(this.src.includes('png')) this.onerror=function(){this.onerror=null; this.src='l8.jpg';}};" 
+                         alt="Pod L8 Vape">
                 </div>
-                <div class="product-details">
-                    <h2 class="product-title">PODY VAPE L8</h2>
-                    <p class="product-desc">Wydajne urządzenie pod system. Wytrzymały akumulator.</p>
+                <div class="product-info">
+                    <h2 class="product-title">Pody L8 (Vape)</h2>
+                    <p class="product-desc">Urządzenie pod vape</p>
                     <div class="price-tag">
-                        <span class="current-price">20 PLN</span>
-                        <span class="old-price">35 zł</span>
-                        <span class="neg-badge">DO NEGOCIACJI</span>
+                        <span class="current-price">20 zł</span>
+                        <span class="neg-badge">DO NEGOCJACJI</span>
                     </div>
                 </div>
             </div>
 
         </div>
 
-        <!-- Nagłówek Sekcji Kontakt -->
-        <div class="section-title">BEZPOŚREDNI KONTAKT</div>
-
-        <!-- Sekcja Kontaktowa -->
+        <!-- Kontakt -->
         <div class="contact-card">
-            
-            <!-- Wielki Przycisk Dzwonienia -->
             <a href="tel:728565481" class="call-main-btn">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
                     <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
                 </svg>
                 728 565 481
             </a>
 
-            <!-- Dodatkowe Szybkie Akcje -->
             <div class="action-buttons-grid">
                 <a href="sms:728565481" class="sub-btn">
-                    <span>💬 Wyślij SMS</span>
+                    💬 Wyślij SMS
                 </a>
                 <button class="sub-btn" onclick="copyPhone()">
-                    <span>📋 Kopiuj Numer</span>
+                    📋 Kopiuj Numer
                 </button>
             </div>
 
-            <!-- Baner Informacyjny -->
             <div class="liquify-banner">
                 <div class="liquify-banner-text">
-                    KONTAKT PO LIQUID // WIĘCEJ NA PV
+                    KONTAKT PO LIQUID<br>WIĘCEJ INFORMACJI NA PV
                 </div>
             </div>
         </div>
 
-        <!-- Sekcja Zaufania / Gwarancji -->
-        <div class="trust-grid">
-            <div class="trust-item">
-                <div class="trust-icon">⚡</div>
-                <div class="trust-title">SZYBKI ODBIÓR</div>
-                <div class="trust-desc">Kontakt 24/7 na PV</div>
-            </div>
-            <div class="trust-item">
-                <div class="trust-icon">🤝</div>
-                <div class="trust-title">NEGOCJACJA</div>
-                <div class="trust-desc">Możliwy rabat</div>
-            </div>
-            <div class="trust-item">
-                <div class="trust-icon">🔥</div>
-                <div class="trust-title">TOP JAKOŚĆ</div>
-                <div class="trust-desc">Sprawdzony sprzęt</div>
-            </div>
-        </div>
-
-        <!-- Stopka -->
-        <div class="footer">
-            &copy; 2026 LIQUID STORE // ALL RIGHTS RESERVED
-        </div>
-
     </div>
 
-    <!-- Powiadomienie Skopiowano -->
-    <div id="toast" class="toast">Skopiowano numer do schowka!</div>
+    <div id="toast" class="toast">Skopiowano numer!</div>
 
     <script>
         function copyPhone() {
