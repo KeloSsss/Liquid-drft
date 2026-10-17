@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kontakt - Liquid Drift</title>
+    <title>Liquid & Pody L8 - Sklep / Sprzedaż</title>
     <style>
         * {
             margin: 0;
@@ -13,154 +13,253 @@
         }
 
         body {
-            background-color: #080d1a;
-            background-image: radial-gradient(circle at 50% 20%, #0d1b3e 0%, #080d1a 80%);
+            background-color: #050b18;
+            background-image: 
+                radial-gradient(circle at 50% 0%, rgba(0, 162, 255, 0.15) 0%, transparent 60%),
+                radial-gradient(circle at 20% 90%, rgba(0, 243, 255, 0.08) 0%, transparent 50%);
             color: #ffffff;
             min-height: 100vh;
             display: flex;
-            justify-content: center;
+            flex-direction: column;
             align-items: center;
-            text-align: center;
             padding: 20px;
         }
 
-        .card {
-            background: rgba(13, 25, 54, 0.7);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            padding: 40px 25px;
-            border-radius: 24px;
-            box-shadow: 0 15px 35px rgba(0, 119, 255, 0.15), 
-                        0 0 0 1px rgba(0, 162, 255, 0.2);
-            max-width: 420px;
+        .container {
+            max-width: 480px;
             width: 100%;
             display: flex;
             flex-direction: column;
-            align-items: center;
+            gap: 20px;
         }
 
-        /* Logo czaszki i oleju */
-        .logo-container {
-            width: 100px;
-            height: 100px;
-            margin-bottom: 20px;
-            background: radial-gradient(circle, rgba(0, 162, 255, 0.2) 0%, rgba(0,0,0,0) 70%);
+        /* Nagłówek firmy */
+        .header {
+            background: rgba(13, 25, 54, 0.85);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(0, 162, 255, 0.3);
+            border-radius: 16px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .logo-title {
+            font-size: 1.6rem;
+            font-weight: 900;
+            background: linear-gradient(45deg, #00f3ff, #0077ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .subtitle {
+            font-size: 0.85rem;
+            color: #72a1e5;
+            margin-top: 5px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        /* Siatka produktów */
+        .products-section {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .product-card {
+            background: rgba(13, 25, 54, 0.75);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(0, 162, 255, 0.2);
+            border-radius: 16px;
+            padding: 18px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+            transition: transform 0.2s, border-color 0.2s;
+        }
+
+        .product-card:hover {
+            border-color: #00f3ff;
+            transform: translateY(-2px);
+        }
+
+        .product-img-box {
+            width: 80px;
+            height: 80px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 12px;
             display: flex;
             justify-content: center;
             align-items: center;
-            border-radius: 50%;
-            padding: 10px;
+            flex-shrink: 0;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            overflow: hidden;
+            padding: 5px;
         }
 
-        .logo-svg {
-            width: 100%;
-            height: 100%;
-            filter: drop-shadow(0 0 8px rgba(0, 195, 255, 0.8));
+        .product-img-box img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
         }
 
-        .phone-box {
-            width: 100%;
-            margin: 15px 0 25px 0;
+        .product-info {
+            flex-grow: 1;
         }
 
-        .phone-label {
+        .product-name {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 4px;
+        }
+
+        .product-desc {
+            font-size: 0.8rem;
+            color: #8ab4f8;
+            margin-bottom: 8px;
+        }
+
+        .product-price {
+            font-size: 1.15rem;
+            font-weight: 800;
+            color: #00f3ff;
+        }
+
+        .negotiable {
+            font-size: 0.75rem;
+            color: #ff007f;
+            background: rgba(255, 0, 127, 0.1);
+            padding: 2px 6px;
+            border-radius: 4px;
+            margin-left: 6px;
+            font-weight: 600;
+            display: inline-block;
+        }
+
+        /* Sekcja kontaktu */
+        .contact-box {
+            background: rgba(13, 25, 54, 0.85);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(0, 162, 255, 0.3);
+            border-radius: 16px;
+            padding: 25px 20px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .contact-label {
             font-size: 0.85rem;
             color: #72a1e5;
             text-transform: uppercase;
-            letter-spacing: 2.5px;
+            letter-spacing: 2px;
             margin-bottom: 12px;
-            font-weight: 600;
+            font-weight: 700;
         }
 
-        /* Przycisk do dzwonienia */
         .call-button {
-            display: inline-flex;
+            display: flex;
             align-items: center;
             justify-content: center;
             gap: 12px;
-            background: linear-gradient(135deg, #0051ff, #00a2ff);
-            color: #ffffff;
-            font-size: 1.5rem;
-            font-weight: 700;
+            background: linear-gradient(135deg, #0051ff, #00f3ff);
+            color: #050b18;
+            font-size: 1.4rem;
+            font-weight: 900;
             text-decoration: none;
-            padding: 16px 28px;
+            padding: 16px;
             border-radius: 50px;
             width: 100%;
-            box-shadow: 0 8px 20px rgba(0, 114, 255, 0.4);
+            box-shadow: 0 5px 20px rgba(0, 243, 255, 0.4);
             transition: all 0.3s ease;
+            margin-bottom: 15px;
         }
 
         .call-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 12px 25px rgba(0, 162, 255, 0.6);
-            background: linear-gradient(135deg, #0062ff, #00c3ff);
-        }
-
-        .call-button:active {
-            transform: translateY(1px);
+            transform: scale(1.02);
+            box-shadow: 0 8px 25px rgba(0, 243, 255, 0.7);
         }
 
         .phone-icon {
             width: 24px;
             height: 24px;
-            fill: #ffffff;
+            fill: #050b18;
         }
 
-        /* Kolorowy, animowany napis */
-        .liquify-text {
-            font-size: 1.25rem;
+        /* Animowany napis na dole */
+        .footer-text {
+            font-size: 1.1rem;
             font-weight: 800;
-            background: linear-gradient(45deg, #ff007f, #9b51e0, #00d2ff, #00ff87, #ff007f);
-            background-size: 300% 300%;
+            background: linear-gradient(45deg, #ff007f, #00f3ff, #ff007f);
+            background-size: 200% auto;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            animation: gradientAnimation 4s ease infinite;
-            margin-top: 10px;
-            line-height: 1.4;
-            padding: 10px 0;
+            animation: textNeon 4s linear infinite;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 5px;
         }
 
-        @keyframes gradientAnimation {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
+        @keyframes textNeon {
+            to { background-position: 200% center; }
         }
     </style>
 </head>
 <body>
 
-    <div class="card">
-        <!-- Logo Czaszka z kroplą oleju w środku -->
-        <div class="logo-container">
-            <svg class="logo-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                <!-- Czaszka -->
-                <path d="M 50 15 C 32 15 20 28 20 45 C 20 56 25 64 30 70 L 32 82 C 32 84 34 85 36 85 L 64 85 C 66 85 68 84 68 82 L 70 70 C 75 64 80 56 80 45 C 80 28 68 15 50 15 Z" fill="#00d2ff" opacity="0.9"/>
-                <!-- Oczodoły -->
-                <ellipse cx="38" cy="48" rx="8" ry="11" fill="#080d1a"/>
-                <ellipse cx="62" cy="48" rx="8" ry="11" fill="#080d1a"/>
-                <!-- Otwór nosowy -->
-                <path d="M 50 58 L 46 66 L 54 66 Z" fill="#080d1a"/>
-                <!-- Zęby / Wycięcia na dole -->
-                <line x1="42" y1="76" x2="42" y2="85" stroke="#080d1a" stroke-width="3"/>
-                <line x1="50" y1="76" x2="50" y2="85" stroke="#080d1a" stroke-width="3"/>
-                <line x1="58" y1="76" x2="58" y2="85" stroke="#080d1a" stroke-width="3"/>
-                <!-- Kropla oleju na czole czaszki -->
-                <path d="M 50 22 C 50 22 42 32 42 37 C 42 41 45.5 44 50 44 C 54.5 44 58 41 58 37 C 58 32 50 22 50 22 Z" fill="#080d1a"/>
-            </svg>
+    <div class="container">
+        <!-- Nagłówek -->
+        <div class="header">
+            <div class="logo-title">Liquid & Vapes Store</div>
+            <div class="subtitle">Oferta Specjalna</div>
         </div>
 
-        <div class="phone-box">
-            <div class="phone-label">Kliknij, aby zadzwonić</div>
+        <!-- Lista produktów -->
+        <div class="products-section">
+            <!-- Produkt 1: Liquid -->
+            <div class="product-card">
+                <div class="product-img-box">
+                    <img src="liquid.png" alt="Liquid">
+                </div>
+                <div class="product-info">
+                    <div class="product-name">Liquidy</div>
+                    <div class="product-desc">Różne smaki i moce do wyboru</div>
+                    <div class="product-price">Zapytaj o cenę</div>
+                </div>
+            </div>
+
+            <!-- Produkt 2: Pody L8 -->
+            <div class="product-card">
+                <div class="product-img-box">
+                    <img src="l8.png" alt="Pod L8">
+                </div>
+                <div class="product-info">
+                    <div class="product-name">Pody L8 (Vape)</div>
+                    <div class="product-desc">Wydajne urządzenie system pod</div>
+                    <div>
+                        <span class="product-price">20 zł</span>
+                        <span class="negotiable">Do negocjacji</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sekcja Kontaktowa -->
+        <div class="contact-box">
+            <div class="contact-label">Szybki kontakt telefoniczny</div>
             <a href="tel:728565481" class="call-button">
                 <svg class="phone-icon" viewBox="0 0 24 24">
                     <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
                 </svg>
                 728 565 481
             </a>
-        </div>
-
-        <div class="liquify-text">
-            Kontakt po liquify więcej na pv
+            <div class="footer-text">
+                Kontakt po Liquid<br>Więcej na PV
+            </div>
         </div>
     </div>
 
