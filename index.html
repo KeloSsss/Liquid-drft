@@ -84,7 +84,7 @@
             max-width: 480px;
             width: 100%;
             display: flex;
-            flex-direction: column
+            flex-direction: column;
             gap: 20px;
             z-index: 1;
         }
@@ -129,62 +129,6 @@
             color: var(--text-muted);
             text-transform: uppercase;
             font-size: 0.75rem;
-        }
-
-        /* Sekcja NA STANIE */
-        .stock-card {
-            background: var(--card-bg);
-            border: 1px solid rgba(0, 243, 255, 0.4);
-            border-radius: 20px;
-            padding: 20px;
-            backdrop-filter: blur(14px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-        }
-
-        .stock-header {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 1.1rem;
-            font-weight: 900;
-            color: var(--primary-cyan);
-            margin-bottom: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            letter-spacing: 1.5px;
-            border-bottom: 1px dashed rgba(0, 243, 255, 0.3);
-            padding-bottom: 8px;
-        }
-
-        .stock-list {
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-        }
-
-        .stock-item {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background: rgba(15, 23, 42, 0.6);
-            padding: 8px 12px;
-            border-radius: 10px;
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            font-size: 0.9rem;
-        }
-
-        .stock-flavor {
-            font-weight: 700;
-            color: var(--text-main);
-        }
-
-        .stock-nicotine {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 0.8rem;
-            color: #00ff87;
-            background: rgba(0, 255, 135, 0.1);
-            padding: 2px 8px;
-            border-radius: 6px;
-            border: 1px solid rgba(0, 255, 135, 0.3);
         }
 
         /* Główny Nagłówek Sklepu */
@@ -240,6 +184,50 @@
             font-size: 0.95rem;
             font-weight: 600;
             letter-spacing: 1px;
+        }
+
+        /* Sekcja NA STANIE - Tabela Smaków i Mocy */
+        .stock-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-glow);
+            border-radius: 20px;
+            padding: 20px;
+            backdrop-filter: blur(12px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+        }
+
+        .stock-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.9rem;
+        }
+
+        .stock-table th {
+            font-family: 'Orbitron', sans-serif;
+            color: var(--primary-cyan);
+            font-size: 0.8rem;
+            text-align: left;
+            padding-bottom: 10px;
+            border-bottom: 1px solid rgba(0, 243, 255, 0.2);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .stock-table th:last-child {
+            text-align: right;
+        }
+
+        .stock-table td {
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            color: var(--text-main);
+            font-weight: 600;
+        }
+
+        .stock-table td:last-child {
+            text-align: right;
+            font-family: 'Orbitron', sans-serif;
+            color: #00ff87;
         }
 
         /* Sekcja Produktów */
@@ -549,7 +537,7 @@
 
         .info-title {
             font-family: 'Orbitron', sans-serif;
-            font-size: 1rem;
+            font-size: 0.95rem;
             font-weight: 700;
             color: #00ff87;
             margin-bottom: 8px;
@@ -648,39 +636,46 @@
             <div class="status-location">EXPRESS PV</div>
         </div>
 
-        <!-- Tabela Dostępności NA STANIE -->
-        <div class="stock-card">
-            <div class="stock-header">
-                <span>NA STANIE</span>
-                <span style="font-size: 0.75rem; color: var(--text-muted);">MOC / SMAK</span>
-            </div>
-            <div class="stock-list">
-                <!-- TUTAJ MOŻESZ WPISYWAĆ SMAKI I MOC NIKOTYNY -->
-                <div class="stock-item">
-                    <span class="stock-flavor">Truskawka Arbuz</span>
-                    <span class="stock-nicotine">20 mg</span>
-                </div>
-                <div class="stock-item">
-                    <span class="stock-flavor">Borówka Ice</span>
-                    <span class="stock-nicotine">50 mg</span>
-                </div>
-                <div class="stock-item">
-                    <span class="stock-flavor">Sól Nikotynowa Pure</span>
-                    <span class="stock-nicotine">200 mg</span>
-                </div>
-                <div class="stock-item">
-                    <span class="stock-flavor">Pod L8 (Czarny)</span>
-                    <span class="stock-nicotine">Sprzęt</span>
-                </div>
-                <!-- MOŻESZ DODAWAĆ KOLEJNE WIERSZE KOPIUJĄC POWYŻSZY DIV -->
-            </div>
-        </div>
-
         <!-- Główny Nagłówek -->
         <div class="header-card">
             <div class="brand-badge">OFFICIAL SUPPLIER</div>
             <h1 class="main-title">LIQUID & VAPE</h1>
             <p class="main-subtitle">Szybka obsługa • Najwyższa jakość • Najlepsze ceny</p>
+        </div>
+
+        <!-- Nagłówek Sekcji Dostępności -->
+        <div class="section-title">NA STANIE</div>
+
+        <!-- Tabela Smaków i Mocy Nikotyny -->
+        <div class="stock-card">
+            <table class="stock-table">
+                <thead>
+                    <tr>
+                        <th>SMAK / PRODUKT</th>
+                        <th>MOC NIKOTYNY</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- TUTAJ WPISUJ SWOJE SMAKI I MOCE -->
+                    <tr>
+                        <td>Truskawka Arbuz</td>
+                        <td>20 mg</td>
+                    </tr>
+                    <tr>
+                        <td>Borówka Ice</td>
+                        <td>50 mg</td>
+                    </tr>
+                    <tr>
+                        <td>Sól Nikotynowa Pure</td>
+                        <td>200 mg</td>
+                    </tr>
+                    <tr>
+                        <td>Pod L8 (Czarny)</td>
+                        <td>Sprzęt</td>
+                    </tr>
+                    <!-- MOŻESZ DODAWAĆ KOLEJNE WIERSZE <tr>...</tr> -->
+                </tbody>
+            </table>
         </div>
 
         <!-- Nagłówek Sekcji Produkty -->
@@ -788,7 +783,7 @@
                 <span>🛡️ GWARANCJA JAKOŚCI I BEZPIECZEŃSTWA</span>
             </div>
             <div class="info-text">
-                Wszystkie oferowane produkty są w 100% sprawdzone, wyselekcjonowane i bezpieczne w użytkowaniu. Dbamy o najwyższą czystość składników i stałe, pewne źródło dostaw. Wybierając nasz asortyment, masz pewność pełnego zadowolenia, świetnego smaku oraz bezproblemowej transakcji.
+                Wszystkie oferowane produkty są w 100% sprawdzone, wyselekcjonowane i bezpieczne w użytkowaniu. Dbamy o najwyższą jakość składników i stałe, pewne źródło dostaw. Wybierając nasz asortyment, masz pewność pełnego zadowolenia, świetnego smaku oraz bezproblemowej transakcji.
             </div>
         </div>
 
@@ -843,4 +838,3 @@
     </script>
 </body>
 </html>
-
