@@ -3,108 +3,120 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Liquid & Pody L8 - Sklep / Sprzedaż</title>
+    <title>Liquid & Vapes L8 Store</title>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
         }
 
         body {
-            background-color: #050b18;
+            background-color: #030712;
             background-image: 
-                radial-gradient(circle at 50% 0%, rgba(0, 162, 255, 0.15) 0%, transparent 60%),
-                radial-gradient(circle at 20% 90%, rgba(0, 243, 255, 0.08) 0%, transparent 50%);
+                radial-gradient(circle at 50% 0%, rgba(0, 162, 255, 0.25) 0%, transparent 60%),
+                radial-gradient(circle at 80% 80%, rgba(255, 0, 127, 0.12) 0%, transparent 50%);
             color: #ffffff;
             min-height: 100vh;
             display: flex;
             flex-direction: column;
             align-items: center;
-            padding: 20px;
+            justify-content: center;
+            padding: 20px 15px;
         }
 
         .container {
-            max-width: 480px;
+            max-width: 440px;
             width: 100%;
             display: flex;
             flex-direction: column;
-            gap: 20px;
+            gap: 18px;
         }
 
-        /* Nagłówek firmy */
+        /* Sklepowy Nagłówek */
         .header {
-            background: rgba(13, 25, 54, 0.85);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(0, 162, 255, 0.3);
-            border-radius: 16px;
-            padding: 20px;
+            background: rgba(15, 23, 42, 0.85);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(0, 195, 255, 0.3);
+            border-radius: 20px;
+            padding: 22px 15px;
             text-align: center;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6), inset 0 0 15px rgba(0, 195, 255, 0.1);
         }
 
         .logo-title {
-            font-size: 1.6rem;
+            font-size: 1.75rem;
             font-weight: 900;
-            background: linear-gradient(45deg, #00f3ff, #0077ff);
+            background: linear-gradient(135deg, #00f3ff, #0066ff, #ff007f);
+            background-size: 200% auto;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            animation: shine 4s linear infinite;
             letter-spacing: 1px;
             text-transform: uppercase;
         }
 
-        .subtitle {
-            font-size: 0.85rem;
-            color: #72a1e5;
-            margin-top: 5px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
+        @keyframes shine {
+            to { background-position: 200% center; }
         }
 
-        /* Siatka produktów */
+        .subtitle {
+            font-size: 0.8rem;
+            color: #38bdf8;
+            margin-top: 6px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-weight: 700;
+        }
+
+        /* Lista Produktów */
         .products-section {
             display: flex;
             flex-direction: column;
-            gap: 15px;
+            gap: 14px;
         }
 
         .product-card {
-            background: rgba(13, 25, 54, 0.75);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(0, 162, 255, 0.2);
-            border-radius: 16px;
-            padding: 18px;
+            background: rgba(15, 23, 42, 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(56, 189, 248, 0.25);
+            border-radius: 18px;
+            padding: 16px;
             display: flex;
             align-items: center;
-            gap: 15px;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
-            transition: transform 0.2s, border-color 0.2s;
+            gap: 16px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+            transition: all 0.25s ease;
         }
 
         .product-card:hover {
             border-color: #00f3ff;
             transform: translateY(-2px);
+            box-shadow: 0 12px 30px rgba(0, 243, 255, 0.25);
         }
 
         .product-img-box {
-            width: 80px;
-            height: 80px;
-            background: rgba(0, 0, 0, 0.3);
-            border-radius: 12px;
+            width: 85px;
+            height: 85px;
+            background: #090d16;
+            border-radius: 14px;
             display: flex;
             justify-content: center;
             align-items: center;
             flex-shrink: 0;
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.12);
             overflow: hidden;
-            padding: 5px;
+            padding: 6px;
         }
 
         .product-img-box img {
             max-width: 100%;
             max-height: 100%;
             object-fit: contain;
+            filter: drop-shadow(0 2px 6px rgba(0,0,0,0.8));
         }
 
         .product-info {
@@ -112,53 +124,57 @@
         }
 
         .product-name {
-            font-size: 1.1rem;
-            font-weight: 700;
+            font-size: 1.15rem;
+            font-weight: 800;
             color: #ffffff;
             margin-bottom: 4px;
         }
 
         .product-desc {
-            font-size: 0.8rem;
-            color: #8ab4f8;
+            font-size: 0.82rem;
+            color: #94a3b8;
             margin-bottom: 8px;
+            line-height: 1.3;
         }
 
         .product-price {
-            font-size: 1.15rem;
-            font-weight: 800;
+            font-size: 1.2rem;
+            font-weight: 900;
             color: #00f3ff;
         }
 
         .negotiable {
-            font-size: 0.75rem;
+            font-size: 0.72rem;
             color: #ff007f;
-            background: rgba(255, 0, 127, 0.1);
-            padding: 2px 6px;
-            border-radius: 4px;
+            background: rgba(255, 0, 127, 0.15);
+            border: 1px solid rgba(255, 0, 127, 0.4);
+            padding: 3px 8px;
+            border-radius: 6px;
             margin-left: 6px;
-            font-weight: 600;
+            font-weight: 700;
             display: inline-block;
+            text-transform: uppercase;
         }
 
-        /* Sekcja kontaktu */
+        /* Sekcja Kontaktowa */
         .contact-box {
-            background: rgba(13, 25, 54, 0.85);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(0, 162, 255, 0.3);
-            border-radius: 16px;
-            padding: 25px 20px;
+            background: rgba(15, 23, 42, 0.9);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(0, 243, 255, 0.35);
+            border-radius: 20px;
+            padding: 22px 18px;
             text-align: center;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
         }
 
         .contact-label {
-            font-size: 0.85rem;
-            color: #72a1e5;
+            font-size: 0.8rem;
+            color: #38bdf8;
             text-transform: uppercase;
             letter-spacing: 2px;
             margin-bottom: 12px;
-            font-weight: 700;
+            font-weight: 800;
         }
 
         .call-button {
@@ -167,45 +183,50 @@
             justify-content: center;
             gap: 12px;
             background: linear-gradient(135deg, #0051ff, #00f3ff);
-            color: #050b18;
-            font-size: 1.4rem;
+            color: #030712;
+            font-size: 1.45rem;
             font-weight: 900;
             text-decoration: none;
             padding: 16px;
             border-radius: 50px;
             width: 100%;
-            box-shadow: 0 5px 20px rgba(0, 243, 255, 0.4);
-            transition: all 0.3s ease;
-            margin-bottom: 15px;
+            box-shadow: 0 6px 20px rgba(0, 243, 255, 0.4);
+            transition: all 0.25s ease;
+            margin-bottom: 16px;
+            letter-spacing: 1px;
         }
 
         .call-button:hover {
             transform: scale(1.02);
-            box-shadow: 0 8px 25px rgba(0, 243, 255, 0.7);
+            box-shadow: 0 10px 30px rgba(0, 243, 255, 0.7);
+        }
+
+        .call-button:active {
+            transform: scale(0.98);
         }
 
         .phone-icon {
             width: 24px;
             height: 24px;
-            fill: #050b18;
+            fill: #030712;
         }
 
-        /* Animowany napis na dole */
+        /* Animowany Tekst Informacyjny */
         .footer-text {
-            font-size: 1.1rem;
-            font-weight: 800;
-            background: linear-gradient(45deg, #ff007f, #00f3ff, #ff007f);
-            background-size: 200% auto;
+            font-size: 1.15rem;
+            font-weight: 900;
+            background: linear-gradient(45deg, #ff007f, #00f3ff, #00ff87, #ff007f);
+            background-size: 250% auto;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            animation: textNeon 4s linear infinite;
+            animation: textNeon 3s linear infinite;
             text-transform: uppercase;
             letter-spacing: 1px;
-            margin-top: 5px;
+            line-height: 1.4;
         }
 
         @keyframes textNeon {
-            to { background-position: 200% center; }
+            to { background-position: 250% center; }
         }
     </style>
 </head>
@@ -214,32 +235,32 @@
     <div class="container">
         <!-- Nagłówek -->
         <div class="header">
-            <div class="logo-title">Liquid & Vapes Store</div>
-            <div class="subtitle">Oferta Specjalna</div>
+            <div class="logo-title">Liquid & Vape Store</div>
+            <div class="subtitle">Dostępna Oferta</div>
         </div>
 
-        <!-- Lista produktów -->
+        <!-- Lista produktów ze zdjęciami z Twojego iPhone'a -->
         <div class="products-section">
             <!-- Produkt 1: Liquid -->
             <div class="product-card">
                 <div class="product-img-box">
-                    <img src="liquid.png" alt="Liquid">
+                    <img src="liquid.png.JPG" alt="Liquidy">
                 </div>
                 <div class="product-info">
                     <div class="product-name">Liquidy</div>
-                    <div class="product-desc">Różne smaki i moce do wyboru</div>
+                    <div class="product-desc">Różne smaki i moce</div>
                     <div class="product-price">Zapytaj o cenę</div>
                 </div>
             </div>
 
-            <!-- Produkt 2: Pody L8 -->
+            <!-- Produkt 2: Pod L8 -->
             <div class="product-card">
                 <div class="product-img-box">
-                    <img src="l8.png" alt="Pod L8">
+                    <img src="l8.png.JPG" alt="Pod L8 Vape">
                 </div>
                 <div class="product-info">
                     <div class="product-name">Pody L8 (Vape)</div>
-                    <div class="product-desc">Wydajne urządzenie system pod</div>
+                    <div class="product-desc">Urządzenie pod vape</div>
                     <div>
                         <span class="product-price">20 zł</span>
                         <span class="negotiable">Do negocjacji</span>
@@ -248,7 +269,7 @@
             </div>
         </div>
 
-        <!-- Sekcja Kontaktowa -->
+        <!-- Przycisk Kontaktu -->
         <div class="contact-box">
             <div class="contact-label">Szybki kontakt telefoniczny</div>
             <a href="tel:728565481" class="call-button">
@@ -258,7 +279,7 @@
                 728 565 481
             </a>
             <div class="footer-text">
-                Kontakt po Liquid<br>Więcej na PV
+                Kontakt po Liquid<br>Więcej informacji na PV
             </div>
         </div>
     </div>
