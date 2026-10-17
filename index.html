@@ -29,6 +29,10 @@
             user-select: none;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             background-color: var(--bg-dark);
             color: var(--text-main);
@@ -268,6 +272,8 @@
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             position: relative;
             overflow: hidden;
+            text-decoration: none;
+            cursor: pointer;
         }
 
         .product-card:hover {
@@ -387,6 +393,49 @@
             color: var(--accent-pink);
             font-weight: 700;
             text-transform: uppercase;
+        }
+
+        /* Sekcja Szczegółowych Opisów Produktów */
+        .details-wrapper {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .product-detail-card {
+            background: var(--card-bg);
+            border: 1px solid rgba(0, 243, 255, 0.2);
+            border-radius: 20px;
+            padding: 20px;
+            backdrop-filter: blur(14px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            scroll-margin-top: 20px;
+        }
+
+        .product-detail-card h3 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.1rem;
+            color: var(--primary-cyan);
+            margin-bottom: 10px;
+            border-bottom: 1px solid rgba(0, 243, 255, 0.2);
+            padding-bottom: 6px;
+        }
+
+        .product-detail-card p {
+            font-size: 0.9rem;
+            color: var(--text-main);
+            line-height: 1.5;
+        }
+
+        .product-detail-card ul {
+            margin-top: 8px;
+            margin-left: 20px;
+            font-size: 0.88rem;
+            color: var(--text-muted);
+        }
+
+        .product-detail-card ul li {
+            margin-bottom: 4px;
         }
 
         /* Sekcja Kontaktowa */
@@ -679,13 +728,13 @@
         </div>
 
         <!-- Nagłówek Sekcji Produkty -->
-        <div class="section-title">DOSTĘPNY ASORTYMENT</div>
+        <div class="section-title">DOSTĘPNY ASORTYMENT (KLIKNIJ ABY ZOBACZYĆ OPIS)</div>
 
-        <!-- Lista Produktów -->
+        <!-- Lista Produktów (Główne 3 Karty z Linkami) -->
         <div class="product-grid">
 
             <!-- Karta 1: Liquidy -->
-            <div class="product-card">
+            <a href="#desc-liquid" class="product-card">
                 <div class="card-badge badge-cyan">HOT DEAL</div>
                 <div class="product-image-frame">
                     <img src="liquid.png.JPG" alt="Liquidy Premium">
@@ -698,13 +747,13 @@
                         <span class="neg-badge">ZAPYTAJ</span>
                     </div>
                 </div>
-            </div>
+            </a>
 
             <!-- Karta 2: Sól Nikotynowa 200mg -->
-            <div class="product-card">
+            <a href="#desc-niko" class="product-card">
                 <div class="card-badge badge-purple">SUPER MOC</div>
                 <div class="product-image-frame">
-                    <img src="Niko.PNG" alt="Sól Nikotynowa 200mg">
+                    <img src="Niko.JPG" alt="Sól Nikotynowa 200mg">
                 </div>
                 <div class="product-details">
                     <h2 class="product-title">SÓL NIKOTYNOWA 200MG</h2>
@@ -715,10 +764,10 @@
                         <span class="neg-badge">RABAT</span>
                     </div>
                 </div>
-            </div>
+            </a>
 
             <!-- Karta 3: Pod L8 -->
-            <div class="product-card featured">
+            <a href="#desc-l8" class="product-card featured">
                 <div class="card-badge badge-pink">Bestseller</div>
                 <div class="product-image-frame">
                     <img src="l8.png.JPG" alt="Vape Pod L8">
@@ -732,6 +781,43 @@
                         <span class="neg-badge">DO NEGOCJACJI</span>
                     </div>
                 </div>
+            </a>
+
+        </div>
+
+        <!-- Nagłówek Sekcji Opisów Produktów -->
+        <div class="section-title">SZCZEGÓŁOWE OPISY PRODUKTÓW</div>
+
+        <!-- Sekcja Opisów Po Kliknięciu -->
+        <div class="details-wrapper">
+
+            <!-- Opis Liquidy -->
+            <div id="desc-liquid" class="product-detail-card">
+                <h3>🧪 LIQUIDY PREMIUM</h3>
+                <p>Nasze liquidy charakteryzują się najwyższą czystością oraz wyrazistym smakiem przy każdym zaciągnięciu. Są w pełni sprawdzone i bezpieczne w użytkowaniu.</p>
+                <ul>
+                    <li><strong>Składniki:</strong> Bezpieczny glikol, gliceryna, aromat oraz nikotyna sól</li>
+                    <li><strong>Warianty:</strong> Różnorodne smaki owocowe i chłodzące</li>
+                    <li><strong>Gwarancja:</strong> Czysty smak i wysoka chmura</li>
+                </ul>
+            </div>
+
+            <!-- Opis Sól Nikotynowa -->
+            <div id="desc-niko" class="product-detail-card">
+                <h3>💥 SÓL NIKOTYNOWA SIC SALT BOOSTER</h3>
+                <p><strong>Pojemność / Moc:</strong> 200mg / butelka</p>
+                <p style="margin-top: 8px;"><strong>Opis:</strong> To nie jest zwykła baza nikotynowa! Jest to wysokiej jakości sól nikotynowa, którą można użyć do precyzyjnego podnoszenia zawartości nikotyny w gotowych premixach, jak i w autorskich liquidach typu ownmix.</p>
+            </div>
+
+            <!-- Opis Pod L8 -->
+            <div id="desc-l8" class="product-detail-card">
+                <h3>⚡ PODY VAPE L8</h3>
+                <p>Kompaktowe i niezwykle wydajne urządzenie typu pod. Oferuje świetny przelot oraz długi czas pracy na jednym ładowaniu.</p>
+                <ul>
+                    <li><strong>Końcówki:</strong> Nowe, wymienne kartridże/końcówki z nowoczesną grzałką mesh zapewniające idealne oddanie smaku</li>
+                    <li><strong>Ładowanie:</strong> Szybkie złącze USB-C</li>
+                    <li><strong>Stan:</strong> Fabrycznie nowy, gotowy do zalania</li>
+                </ul>
             </div>
 
         </div>
